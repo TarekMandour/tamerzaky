@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>مؤشرات م.تامر زكي</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <main class="panel">
+      <header class="hero">
+        <img class="hero-art" src="assets/tamer-hero-generated.png" alt="" aria-hidden="true">
+        <div class="sr-only">
+          <h1>مؤشرات<br><span>م.تامر زكي</span></h1>
+          <p>معك في كل حركة بالسوق</p>
+        </div>
+      </header>
+
+      <div class="body-area" aria-live="polite">
+        <section id="loading-view" class="view loading-view">
+          <span class="loading-track" aria-hidden="true"></span>
+          <h2>لحظة واحدة…</h2>
+          <p id="loading-copy">بنتأكد من تسجيل الدخول</p>
+        </section>
+
+        <section id="connection-error-view" class="view" hidden>
+          <h2>تعذّر تأكيد <span>حالة الدخول</span></h2>
+          <p class="lead">اتأكد من اتصال الإنترنت، وبعدها جرّب التحقق تاني.</p>
+          <button id="retry-status" class="primary-button" type="button">إعادة المحاولة</button>
+        </section>
+
+        <section id="signed-out-view" class="view" hidden>
+          <h2>مؤشراتك على <span>شارتك</span></h2>
+          <p class="lead">سجّل بحساب Google لتفعيل مؤشرات م.تامر زكي على ثاندر.</p>
+          <button id="sign-in" class="primary-button google-button" type="button">
+            <img src="assets/google-g.png" alt="" aria-hidden="true">
+            <span>المتابعة باستخدام Google</span>
+          </button>
+          <p class="privacy-note">بتسجيلك، بنحفظ إيميلك لإدارة استخدام الإضافة ودعمك. مؤشر الدعم والمقاومة بيرسل رمز السهم والفريم لسيرفرنا لجلب المستويات. <a href="https://tamerzaky.com/indicators/privacy/" target="_blank" rel="noopener noreferrer">سياسة الخصوصية</a></p>
+        </section>
+
+        <section id="open-thndr-view" class="view" hidden>
+          <h2>مؤشراتك <span>جاهزة</span></h2>
+          <p class="lead">افتح ثاندر علشان تستخدمها على الشارت</p>
+          <button id="open-thndr" class="primary-button thndr-button" type="button">
+            <span>افتح ثاندر</span>
+            <img src="assets/external-link.svg" alt="" aria-hidden="true">
+          </button>
+          <p class="success-note"><span class="success-dot" aria-hidden="true"></span>تم تسجيل الدخول بنجاح</p>
+        </section>
+
+        <section id="social-view" class="view social-view" hidden>
+          <p class="connected-note"><span class="success-dot" aria-hidden="true"></span>ثاندر مفتوح</p>
+          <h2>تابعني على <span>قنواتي</span></h2>
+          <nav class="social-links" aria-label="قنوات تامر زكي الرسمية">
+            <a href="https://www.facebook.com/Tamer.Zaky0" target="_blank" rel="noopener noreferrer">
+              <img class="social-icon" src="assets/facebook.svg" alt="" aria-hidden="true">
+              <span>Facebook</span>
+              <img class="external-icon" src="assets/external-link.svg" alt="" aria-hidden="true">
+            </a>
+            <a href="https://t.me/TamerZ88" target="_blank" rel="noopener noreferrer">
+              <img class="social-icon" src="assets/telegram.svg" alt="" aria-hidden="true">
+              <span>Telegram</span>
+              <img class="external-icon" src="assets/external-link.svg" alt="" aria-hidden="true">
+            </a>
+            <a href="https://www.youtube.com/@tamerz88" target="_blank" rel="noopener noreferrer">
+              <img class="social-icon" src="assets/youtube.svg" alt="" aria-hidden="true">
+              <span>YouTube</span>
+              <img class="external-icon" src="assets/external-link.svg" alt="" aria-hidden="true">
+            </a>
+            <a href="https://discord.gg/aWFnkw9S2E" target="_blank" rel="noopener noreferrer">
+              <img class="social-icon" src="assets/discord.svg" alt="" aria-hidden="true">
+              <span>Discord</span>
+              <img class="external-icon" src="assets/external-link.svg" alt="" aria-hidden="true">
+            </a>
+          </nav>
+        </section>
+
+        <p id="message" class="message" role="status" hidden></p>
+      </div>
+
+      <footer class="footer">
+        <a href="https://tamerzaky.com/" target="_blank" rel="noopener noreferrer">TamerZaky.com</a>
+        <button id="delete-account" type="button" hidden>حذف بياناتي</button>
+        <button id="sign-out" type="button" hidden>تسجيل الخروج</button>
+      </footer>
+    </main>
+  </body>
+</html>

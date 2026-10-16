@@ -1,0 +1,33 @@
+{
+   "action": {
+      "default_icon": {
+         "16": "assets/icon-16.png",
+         "32": "assets/icon-32.png"
+      },
+      "default_popup": "popup/popup.html",
+      "default_title": "Tamer Zaky Indicators"
+   },
+   "background": {
+      "service_worker": "src/background.js"
+   },
+   "description": "Add Tamer Zaky indicators to Egyptian stock charts on ThndrX.",
+   "homepage_url": "https://tamerzaky.com/indicators/",
+   "host_permissions": [ "https://x.thndr.app/*", "https://openidconnect.googleapis.com/*", "https://api.tamerzaky.com/*" ],
+   "icons": {
+      "128": "assets/icon-128.png",
+      "16": "assets/icon-16.png",
+      "32": "assets/icon-32.png",
+      "48": "assets/icon-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu/BnGRjffnZNqdcDNVqCrxnnfDy7TrPawodyN7YNPfFVXx2A8MVSOZVkvITAmgUD9qKUiWAkgrSQze5DWMNpaQwFQdBh80li7a6BEuZC8NV4wXabz5YJtZt2jtR6kt3n99r71FE0Fe3Kg7tSMVE7gfK/slfeGlpDHcOZyDMmwtcsr7VoJs9hMKjRZfzRP8YL7ry1hby0p3kIMg5KRB+vUk4DXXEI5s+4IsBLgH4Pk20rTZuWS4pClcg8VDa2arVIkYHqxMGVSKUri5rfmrbUAbhoK0iQCVP2YR4fRzRU+1QKecsT5X3j4ztARfWeDEyXZToRlDvFYxJZapSWWd7u8QIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "119",
+   "name": "Tamer Zaky Indicators",
+   "oauth2": {
+      "client_id": "509511776634-q7g5k9gt718c4gnfhtpfaci009bs7b4c.apps.googleusercontent.com",
+      "scopes": [ "openid", "email" ]
+   },
+   "permissions": [ "identity", "scripting", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.13.0"
+}
