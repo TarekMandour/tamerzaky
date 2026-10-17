@@ -77,7 +77,7 @@
           hullLagColor: { visible: false },
           buySignal: { plottype: "shape_label_up", location: "BelowBar", color: "#00C853", text: "BUY", textColor: "#FFFFFF", transparency: 0, visible: true, size: "normal" },
           exitSignal: { plottype: "shape_label_down", location: "AboveBar", color: "#FF1744", text: "EXIT", textColor: "#FFFFFF", transparency: 0, visible: true, size: "normal" },
-          barColor: { visible: false }
+          barColor: { visible: true }
         },
         palettes: {
           hullTrend: {
@@ -101,8 +101,6 @@
           colorHull: true,
           colorCandles: false,
           showBand: true,
-          lineThickness: 1,
-          bandTransparency: 40
         }
       },
       inputs: [
@@ -110,8 +108,6 @@
         { id: "colorHull", name: "Color Hull according to trend", type: "bool", defval: true },
         { id: "colorCandles", name: "Color candles based on Hull trend", type: "bool", defval: false },
         { id: "showBand", name: "Show as a Band", type: "bool", defval: true },
-        { id: "lineThickness", name: "Line Thickness", type: "integer", defval: 1, min: 1, max: 4 },
-        { id: "bandTransparency", name: "Band Transparency", type: "integer", defval: 40, min: 0, max: 100, step: 5 }
       ]
     };
   }
@@ -194,8 +190,6 @@
           var mainLine = hull;
           var shiftedLine = showBand ? hullTwoBarsAgo : NaN;
           var candleTrend = colorCandles ? trendColor : NaN;
-          void lineThickness;
-          void bandTransparency;
 
           return [mainLine, shiftedLine, trendColor, trendColor,
             buy, exit, candleTrend];
