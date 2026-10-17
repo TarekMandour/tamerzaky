@@ -51,8 +51,6 @@
       styles: {
         hull: { title: "MHULL", histogramBase: 0, joinPoints: false },
         hullLag: { title: "SHULL (HULL[2])", histogramBase: 0, joinPoints: false },
-        hullColor: { title: "Hull Trend Color" },
-        hullLagColor: { title: "Hull Band Trend Color" },
         buySignal: { title: "BUY" },
         exitSignal: { title: "EXIT LONG" },
         barColor: { title: "Hull Trend Candles" }
@@ -73,8 +71,6 @@
         styles: {
           hull: { color: "#00FF00", linestyle: 0, linewidth: 1, plottype: 7, trackPrice: false, transparency: 0, visible: true },
           hullLag: { color: "#00FF00", linestyle: 0, linewidth: 1, plottype: 7, trackPrice: false, transparency: 0, visible: true },
-          hullColor: { visible: false },
-          hullLagColor: { visible: false },
           buySignal: { plottype: "shape_label_up", location: "BelowBar", color: "#00C853", text: "BUY", textColor: "#FFFFFF", transparency: 0, visible: true, size: "normal" },
           exitSignal: { plottype: "shape_label_down", location: "AboveBar", color: "#FF1744", text: "EXIT", textColor: "#FFFFFF", transparency: 0, visible: true, size: "normal" },
           barColor: { visible: true }
@@ -125,8 +121,6 @@
           var colorHull = input(1) !== false;
           var colorCandles = input(2) === true;
           var showBand = input(3) !== false;
-          var lineThickness = Math.max(1, Math.min(4, Math.floor(Number(input(4)) || 1)));
-          var bandTransparency = Math.max(0, Math.min(100, Math.floor(Number(input(5)) || 0)));
 
           // These context variables are replay-safe and keep each study instance independent.
           var source = context.new_var(NaN);
