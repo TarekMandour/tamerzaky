@@ -30,6 +30,8 @@
   if (!ACTIVITY && typeof module === "object" && module.exports) ACTIVITY = require("./activity-study.js");
   var ATR_FIBONACCI = root && root.__THNDR_ATR_FIBONACCI_STUDY__;
   if (!ATR_FIBONACCI && typeof module === "object" && module.exports) ATR_FIBONACCI = require("./atr-fibonacci-study.js");
+  var HULL_SUITE = root && root.__THNDR_HULL_SUITE_STUDY__;
+  if (!HULL_SUITE && typeof module === "object" && module.exports) HULL_SUITE = require("./hull-suite-study.js");
 
   var INPUT = CORE.INPUT;
   var OUTPUT = CORE.OUTPUT;
@@ -267,7 +269,11 @@
   }
 
   function createStudies(PineJS) {
-    return SPECS.map(function create(spec) { return createStudy(spec, PineJS); });
+    var studies = SPECS.map(function create(spec) { return createStudy(spec, PineJS); });
+    if (HULL_SUITE && typeof HULL_SUITE.createStudy === "function") {
+      studies.push(HULL_SUITE.createStudy(PineJS));
+    }
+    return studies;
   }
 
   return Object.freeze({ SPECS: SPECS, createStudies: createStudies, buildMetainfo: buildMetainfo });
