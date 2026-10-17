@@ -26,6 +26,7 @@
     "src/atr-fibonacci.js",
     "src/atr-fibonacci-study.js",
     "src/atr-fibonacci-panel.js",
+    "src/hull-suite-study.js",
     "src/tamer-studies.js",
     "src/indicator-panel.js",
     "src/injector.js"
