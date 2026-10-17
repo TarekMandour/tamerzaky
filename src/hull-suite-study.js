@@ -46,14 +46,22 @@
         { id: "hullLagColor", type: "colorer", target: "hullLag", palette: "hullTrend" },
         { id: "buySignal", type: "shapes" },
         { id: "exitSignal", type: "shapes" },
-        { id: "barColor", type: "bar_colorer", palette: "hullTrend" }
+        { id: "barColor", type: "bar_colorer", palette: "hullTrend" },
+        { id: "upFillHull", type: "line" },
+        { id: "upFillLag", type: "line" },
+        { id: "downFillHull", type: "line" },
+        { id: "downFillLag", type: "line" }
       ],
       styles: {
         hull: { title: "MHULL", histogramBase: 0, joinPoints: false },
         hullLag: { title: "SHULL (HULL[2])", histogramBase: 0, joinPoints: false },
         buySignal: { title: "BUY" },
         exitSignal: { title: "EXIT LONG" },
-        barColor: { title: "Hull Trend Candles" }
+        barColor: { title: "Hull Trend Candles" },
+        upFillHull: { title: "Rising Band Top" },
+        upFillLag: { title: "Rising Band Bottom" },
+        downFillHull: { title: "Falling Band Top" },
+        downFillLag: { title: "Falling Band Bottom" }
       },
       palettes: {
         hullTrend: {
@@ -65,15 +73,20 @@
         }
       },
       filledAreas: [
-        { id: "hullBand", objAId: "hull", objBId: "hullLag", type: "plot_plot", title: "Hull Band" }
+        { id: "hullBandUp", objAId: "upFillHull", objBId: "upFillLag", type: "plot_plot", title: "Rising Hull Band" },
+        { id: "hullBandDown", objAId: "downFillHull", objBId: "downFillLag", type: "plot_plot", title: "Falling Hull Band" }
       ],
       defaults: {
         styles: {
-          hull: { color: "#00FF00", linestyle: 0, linewidth: 1, plottype: 7, trackPrice: false, transparency: 0, visible: true },
-          hullLag: { color: "#00FF00", linestyle: 0, linewidth: 1, plottype: 7, trackPrice: false, transparency: 0, visible: true },
+          hull: { color: "#00FF00", linestyle: 0, linewidth: 1, plottype: 7, trackPrice: false, transparency: 50, visible: true },
+          hullLag: { color: "#00FF00", linestyle: 0, linewidth: 1, plottype: 7, trackPrice: false, transparency: 50, visible: true },
           buySignal: { plottype: "shape_label_up", location: "BelowBar", color: "#00C853", text: "BUY", textColor: "#FFFFFF", transparency: 0, visible: true, size: "normal" },
           exitSignal: { plottype: "shape_label_down", location: "AboveBar", color: "#FF1744", text: "EXIT", textColor: "#FFFFFF", transparency: 0, visible: true, size: "normal" },
-          barColor: { visible: true }
+          barColor: { visible: true },
+          upFillHull: { color: "#00FF00", linestyle: 0, linewidth: 1, plottype: 7, trackPrice: false, transparency: 100, visible: true },
+          upFillLag: { color: "#00FF00", linestyle: 0, linewidth: 1, plottype: 7, trackPrice: false, transparency: 100, visible: true },
+          downFillHull: { color: "#FF0000", linestyle: 0, linewidth: 1, plottype: 7, trackPrice: false, transparency: 100, visible: true },
+          downFillLag: { color: "#FF0000", linestyle: 0, linewidth: 1, plottype: 7, trackPrice: false, transparency: 100, visible: true }
         },
         palettes: {
           hullTrend: {
@@ -85,12 +98,8 @@
           }
         },
         filledAreasStyle: {
-          hullBand: {
-            fillType: "solid",
-            color: "#00FF00",
-            transparency: 40,
-            visible: true
-          }
+          hullBandUp: { fillType: "solid", color: "#00FF00", transparency: 40, visible: true },
+          hullBandDown: { fillType: "solid", color: "#FF0000", transparency: 40, visible: true }
         },
         inputs: {
           length: 55,
@@ -184,9 +193,13 @@
           var mainLine = hull;
           var shiftedLine = showBand ? hullTwoBarsAgo : NaN;
           var candleTrend = colorCandles ? trendColor : NaN;
+          var upFillHull = showBand && rising ? hull : NaN;
+          var upFillLag = showBand && rising ? hullTwoBarsAgo : NaN;
+          var downFillHull = showBand && falling ? hull : NaN;
+          var downFillLag = showBand && falling ? hullTwoBarsAgo : NaN;
 
           return [mainLine, shiftedLine, trendColor, trendColor,
-            buy, exit, candleTrend];
+            buy, exit, candleTrend, upFillHull, upFillLag, downFillHull, downFillLag];
         };
       }
     };
