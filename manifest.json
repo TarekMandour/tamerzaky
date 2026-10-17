@@ -29,5 +29,5 @@
    },
    "permissions": [ "identity", "scripting", "storage" ],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "0.13.0"
+   "version": "0.14.0"
 }
